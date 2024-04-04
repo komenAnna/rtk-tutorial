@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ChakraProvider } from '@chakra-ui/react'
+import { Providers } from "./providers"
+import Navbar from './components/Navbar'
 
 import "./globals.css";
 import { BrowserRouter } from "react-router-dom";
@@ -20,12 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <BrowserRouter>
-          <ChakraProvider>
-            
-              {children}
-          </ChakraProvider>
-        </BrowserRouter>
+        
+          <Providers>
+            <Navbar />
+            {children}
+          </Providers>
       </body>
     </html>
   );
